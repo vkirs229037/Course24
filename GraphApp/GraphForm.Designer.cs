@@ -33,11 +33,12 @@
             OpenFileToolStripMenuItem = new ToolStripMenuItem();
             ExitToolStripMenuItem = new ToolStripMenuItem();
             GraphToolStripMenuItem = new ToolStripMenuItem();
+            reachableBtn = new ToolStripMenuItem();
+            dijkstraBtn = new ToolStripMenuItem();
             HelpToolStripMenuItem = new ToolStripMenuItem();
             AboutToolStripMenuItem = new ToolStripMenuItem();
             openFileDialog = new OpenFileDialog();
-            достижимыеВершиныToolStripMenuItem = new ToolStripMenuItem();
-            кратчайшийПутьToolStripMenuItem = new ToolStripMenuItem();
+            answerLabel = new Label();
             menuStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -74,10 +75,24 @@
             // 
             // GraphToolStripMenuItem
             // 
-            GraphToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { достижимыеВершиныToolStripMenuItem, кратчайшийПутьToolStripMenuItem });
+            GraphToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { reachableBtn, dijkstraBtn });
             GraphToolStripMenuItem.Name = "GraphToolStripMenuItem";
             GraphToolStripMenuItem.Size = new Size(57, 24);
             GraphToolStripMenuItem.Text = "Граф";
+            // 
+            // reachableBtn
+            // 
+            reachableBtn.Name = "reachableBtn";
+            reachableBtn.Size = new Size(262, 26);
+            reachableBtn.Text = "Достижимые вершины...";
+            reachableBtn.Click += reachableBtn_Click;
+            // 
+            // dijkstraBtn
+            // 
+            dijkstraBtn.Name = "dijkstraBtn";
+            dijkstraBtn.Size = new Size(262, 26);
+            dijkstraBtn.Text = "Кратчайший путь...";
+            dijkstraBtn.Click += dijkstraBtn_Click;
             // 
             // HelpToolStripMenuItem
             // 
@@ -97,28 +112,24 @@
             // 
             openFileDialog.FileName = "openFileDialog1";
             // 
-            // достижимыеВершиныToolStripMenuItem
+            // answerLabel
             // 
-            достижимыеВершиныToolStripMenuItem.Name = "достижимыеВершиныToolStripMenuItem";
-            достижимыеВершиныToolStripMenuItem.Size = new Size(262, 26);
-            достижимыеВершиныToolStripMenuItem.Text = "Достижимые вершины...";
-            // 
-            // кратчайшийПутьToolStripMenuItem
-            // 
-            кратчайшийПутьToolStripMenuItem.Name = "кратчайшийПутьToolStripMenuItem";
-            кратчайшийПутьToolStripMenuItem.Size = new Size(262, 26);
-            кратчайшийПутьToolStripMenuItem.Text = "Кратчайший путь...";
+            answerLabel.AutoSize = true;
+            answerLabel.Location = new Point(12, 524);
+            answerLabel.Name = "answerLabel";
+            answerLabel.Size = new Size(0, 20);
+            answerLabel.TabIndex = 1;
             // 
             // GraphForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(643, 553);
+            Controls.Add(answerLabel);
             Controls.Add(menuStrip);
             MainMenuStrip = menuStrip;
             Name = "GraphForm";
             Text = "Grapher";
-            Load += GraphForm_Load;
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
             ResumeLayout(false);
@@ -135,7 +146,8 @@
         private ToolStripMenuItem HelpToolStripMenuItem;
         private ToolStripMenuItem AboutToolStripMenuItem;
         private OpenFileDialog openFileDialog;
-        private ToolStripMenuItem достижимыеВершиныToolStripMenuItem;
-        private ToolStripMenuItem кратчайшийПутьToolStripMenuItem;
+        private ToolStripMenuItem reachableBtn;
+        private ToolStripMenuItem dijkstraBtn;
+        private Label answerLabel;
     }
 }

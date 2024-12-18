@@ -8,8 +8,8 @@ internal class Program
         Compiler compiler = new("D:\\Универ\\7 сем\\НИР\\Grapher\\Tests\\graph.txt");
         Graph graph = compiler.Compile();
         graph.Print();
-        (int d, List<int> path) = GraphAlgorithm.Dijkstra(graph, 0, 7);
-        Console.WriteLine("Путь между вершинами 1 и 8:");
+        (int d, List<int> path) = GraphAlgorithm.Dijkstra(graph, 0, 5);
+        Console.WriteLine("Путь между вершинами 1 и 6:");
         Console.WriteLine($"Длина {d}");
         foreach (int i in path)
         {
